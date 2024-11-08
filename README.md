@@ -26,5 +26,6 @@ searchText可以配置多个字符串关键字，并用,号进行分割
 ![image](https://img.picui.cn/free/2024/11/08/672d7c4359d33.png)
 
 每个文件中记录了方法名称和方法中的利用链，还会展示上下文5行代码，更加直观的显示
+
 如下指定关键字为MapFilePath，搜索出相关代码的效果
 ![image](https://img.picui.cn/free/2024/11/08/672d7b3f2aea5.png)
