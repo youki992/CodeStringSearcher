@@ -39,7 +39,7 @@ public class CodeStringSearcher {
             // 获取目录下的所有C#文件
             Path dirPath = Paths.get(csDirectory);
             List<Path> csFiles = Files.list(dirPath)
-                    .filter(path -> path.toString().endsWith(".cs"))
+                    .filter(path -> path.toString().endsWith(".cs") || path.toString().endsWith(".java"))
                     .collect(Collectors.toList()); // 使用 collect(Collectors.toList())
 
             for (Path csFile : csFiles) {
