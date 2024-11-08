@@ -1,8 +1,8 @@
-<h1 style="text-align:center;">
+<h1 align="center">
   <b>CodeStringSearcher</b>
   <br>
-  <span style="font-size:10px;">代码审计辅助工具</span>
 </h1>
+代码审计辅助工具
 
 # 工具介绍
 基于Java开发的代码字符串搜索工具，用于辅助快速代码审计，筛选危险方法名称搜索代码中可能存在的漏洞
