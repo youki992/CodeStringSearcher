@@ -8,5 +8,9 @@
 # 使用说明
 在config.properties中配置源码所在文件夹、源码输出文件夹、搜索字符串
 分别对应配置字段：csDirectory、outputDirectory、searchText
-
+```
+csDirectory=C:\\Users\\xxxx
+outputDirectory=C:\\Users\\xxxx\\output
+searchText=where,Concat,...
+```
 searchText可以配置多个字符串关键字，并用,号进行分割
