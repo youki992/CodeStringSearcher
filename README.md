@@ -1,7 +1,7 @@
-<h1 align="center">
+<h1 style="text-align:center;">
   <b>CodeStringSearcher</b>
   <br>
-<font size="1">代码审计辅助工具</font>
+  <span style="font-size:10px;">代码审计辅助工具</span>
 </h1>
 
 # 工具介绍
