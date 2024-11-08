@@ -34,6 +34,6 @@ searchText可以配置多个字符串关键字，并用,号进行分割
 在config.properties中指定searchText为where，查询where关键字筛选可能存在SQL注入的代码
 ![image](https://img.picui.cn/free/2024/11/08/672da14926a82.png)
 之后进到对应方法中查看，发现存在参数拼接到SQL语句中的情况
-![image](https://www.picgo.net/image/image.o7dQ4J)
+![image](https://img.picui.cn/free/2024/11/08/672da1b9d5659.png)
 最后根据方法构造POC，验证注入
 ![image](https://img.picui.cn/free/2024/11/08/672da169b4b75.png)
