@@ -2,12 +2,16 @@
   <b>CodeStringSearcher</b>
   <br>
 </h1>
-<center>
+<p align="center">
 代码审计辅助工具
-</center>
+<a href="https://github.com/youki992/CodeStringSearcher/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"></a>
+<a href="https://github.com/youki992/CodeStringSearcher"><img alt="Release" src="https://img.shields.io/badge/LICENSE-BSD-important"></a>
+<a href="https://github.com/youki992/CodeStringSearcher/releases"><img src="https://img.shields.io/github/release/youki992/CodeStringSearcher"></a>
+<a href="https://github.com/youki992/CodeStringSearcher/releases"><img src="https://img.shields.io/github/downloads/youki992/CodeStringSearcher/total?color=blueviolet"></a>
+</p>
 
 # 工具介绍
-基于Java开发的代码字符串搜索工具，用于辅助快速代码审计，筛选危险方法名称搜索代码中可能存在的漏洞
+基于Java开发，用于辅助快速代码审计，筛选危险方法名称搜索代码中可能存在的漏洞
 
 # 使用说明
 在config.properties中配置源码所在文件夹、源码输出文件夹、搜索字符串
