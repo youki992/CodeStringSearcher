@@ -2,9 +2,9 @@
   <b>CodeStringSearcher</b>
   <br>
 </h1>
-<body align="center">
+<center>
 代码审计辅助工具
-</body>
+</center>
 
 # 工具介绍
 基于Java开发的代码字符串搜索工具，用于辅助快速代码审计，筛选危险方法名称搜索代码中可能存在的漏洞
