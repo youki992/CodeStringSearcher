@@ -40,6 +40,9 @@ searchText可以配置多个字符串关键字，并用,号进行分割
 最后根据方法构造POC，验证注入
 ![image](https://img.picui.cn/free/2024/11/08/672da169b4b75.png)
 
+# 更新日志
+- 2024-11-15 新增文件夹下子文件夹遍历功能
+
 **本工具由Code4th安全团队开发维护**
 
 ![image](https://ice.frostsky.com/2024/08/18/5559fc7abc47065e9e5e53a7dba2142b.jpeg)
