@@ -1,11 +1,10 @@
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class CodeStringSearcher {
 
@@ -36,17 +35,24 @@ public class CodeStringSearcher {
         try {
             Files.createDirectories(Paths.get(outputDirectory)); // 创建输出目录
 
-            // 获取目录下的所有C#文件
+            // 获取目录及其子目录下的所有C#文件
             Path dirPath = Paths.get(csDirectory);
-            List<Path> csFiles = Files.list(dirPath)
-                    .filter(path -> path.toString().endsWith(".cs") || path.toString().endsWith(".java"))
-                    .collect(Collectors.toList()); // 使用 collect(Collectors.toList())
+            List<Path> csFiles = getFilesRecursively(dirPath, ".cs", ".java");
 
             for (Path csFile : csFiles) {
                 analyzeCode(csFile, searchText, outputDirectory);
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private static List<Path> getFilesRecursively(Path dirPath, String... extensions) throws IOException {
+        try (Stream<Path> walk = Files.walk(dirPath)) {
+            return walk.filter(Files::isRegularFile)
+                    .filter(path -> Arrays.stream(extensions)
+                            .anyMatch(ext -> path.toString().endsWith(ext)))
+                    .collect(Collectors.toList());
         }
     }
 
