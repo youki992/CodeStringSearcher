@@ -15,6 +15,7 @@
 （支持审计.cs后缀和.java后缀的源码）
 
 # 使用说明
+可以参考公众号文章：https://mp.weixin.qq.com/s/fRAnIqa8OieuTt2iLuKdCg?token=329619276&lang=zh_CN
 在config.properties中配置源码所在文件夹、源码输出文件夹、搜索字符串
 分别对应配置字段：csDirectory、outputDirectory、searchText
 ```
