@@ -25,7 +25,9 @@ outputDirectory=C:\\Users\\xxxx\\output
 searchText=where,Concat,...
 ```
 searchText可以配置多个字符串关键字，并用,号进行分割
+
 指定配置文件执行jar文件后，在输出文件夹中对每个方法输出结果文件
+
 ![image](https://img.picui.cn/free/2024/11/08/672d7a91a5abc.png)
 ![image](https://img.picui.cn/free/2024/11/08/672d7c4359d33.png)
 
