@@ -14,15 +14,13 @@ import org.apache.bcel.classfile.Method;
 public class JarMethodSearcher {
 
     public static void main(String[] args) {
-//        if (args.length != 2) {
-//            System.err.println("Usage: java -jar JarMethodFinder.jar <folderPath> <keyword>");
-//            return;
-//        }
-//
-//        String folderPath = args[0];
-//        String keyword = args[1];
-        String folderPath = "F:\\yonyou-modules-2\\modules\\aedsm\\lib";
-        String keyword = "loadAttributes";
+        if (args.length != 2) {
+            System.err.println("Usage: java -jar JarMethodFinder.jar <folderPath> <keyword>");
+            return;
+        }
+
+        String folderPath = args[0];
+        String keyword = args[1];
 
         try {
             List<Path> jarFiles = findJarsRecursively(folderPath);
