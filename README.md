@@ -40,6 +40,21 @@ searchText可以配置多个字符串关键字，并用,号进行分割
 # 更新日志
 - 2024-11-15 新增文件夹下子文件夹遍历功能
 - 2025-10-10 新增方法上下文侧写功能
+- 2026-03-06 优化JAR审计流程：
+  - 支持跨平台CFR路径配置（第三参数或环境变量 `CFR_JAR_PATH`）
+  - 修复反编译输出路径处理，减少误报“反编译失败”
+  - 优化匹配输出逻辑与去重，提升稳定性
+
+## 新版执行示例
+
+```bash
+# 方式1：命令行直接传 CFR 路径
+java -jar JarMethodFinder-1.0-SNAPSHOT.jar /path/to/jars Runtime.getRuntime /path/to/cfr.jar
+
+# 方式2：环境变量配置 CFR 路径
+export CFR_JAR_PATH=/path/to/cfr.jar
+java -jar JarMethodFinder-1.0-SNAPSHOT.jar /path/to/jars Runtime.getRuntime
+```
 
 **本工具由Code4th安全团队开发维护**
 
