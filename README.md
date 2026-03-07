@@ -17,24 +17,53 @@
 新版本砍掉了原先的功能，只支持批量搜索文件夹下的jar文件反编译分析
 
 # 使用说明
-原使用说明可以参考公众号文章：https://mp.weixin.qq.com/s/fRAnIqa8OieuTt2iLuKdCg?token=329619276&lang=zh_CN
 
-注意！更新后请参考公众号新文章使用，原方法已不适用
+## 1) 命令行模式
 
-在config.properties中配置源码所在文件夹、源码输出文件夹、搜索字符串
-分别对应配置字段：csDirectory、outputDirectory、searchText
+```bash
+java -jar JarMethodFinder-1.0-SNAPSHOT.jar <jarDirectory> <keywords> [cfrJarPath] [outputDir]
 ```
-csDirectory=C:\\Users\\xxxx
-outputDirectory=C:\\Users\\xxxx\\output
-searchText=where,Concat,...
+
+- `jarDirectory`: 待审计 JAR 根目录（会递归扫描）
+- `keywords`: 搜索关键字，支持逗号分隔多个，例如：`exec,Runtime.getRuntime,ProcessBuilder`
+- `cfrJarPath`（可选）: CFR 反编译器路径，不传则读取环境变量 `CFR_JAR_PATH`，再兜底 `./cfr.jar`
+- `outputDir`（可选）: 导出目录（用于 JSON/TXT 结果导出）
+
+示例：
+
+```bash
+java -jar JarMethodFinder-1.0-SNAPSHOT.jar /data/jars "exec,Runtime.getRuntime" /tools/cfr.jar /tmp/search-output
 ```
-searchText可以配置多个字符串关键字，并用,号进行分割
 
-指定配置文件执行jar文件后，在输出文件夹中对每个方法输出结果文件
+## 2) config.properties 模式（推荐）
 
-每个文件中记录了方法名称和方法中的利用链，还会展示上下文5行代码，更加直观的显示
+```bash
+java -jar JarMethodFinder-1.0-SNAPSHOT.jar --config config.properties
+# 或
+java -jar JarMethodFinder-1.0-SNAPSHOT.jar config.properties
+```
 
-如下指定关键字为MapFilePath，搜索出相关代码的效果
+配置示例：
+
+```properties
+jarDirectory=/data/jars
+keywords=exec,Runtime.getRuntime,ProcessBuilder
+cfrJarPath=/tools/cfr.jar
+outputDir=/tmp/search-output
+outputFormat=all
+caseSensitive=false
+contextLines=3
+```
+
+字段说明：
+
+- `jarDirectory`: JAR 扫描目录
+- `keywords`: 关键字列表（逗号分隔）
+- `cfrJarPath`: CFR 路径（可选）
+- `outputDir`: 导出目录（可选）
+- `outputFormat`: `txt` / `json` / `all`
+- `caseSensitive`: 是否大小写敏感，默认 `false`
+- `contextLines`: 匹配上下文行数（上下各 N 行），默认 `3`
 
 
 # 更新日志
@@ -43,18 +72,10 @@ searchText可以配置多个字符串关键字，并用,号进行分割
 - 2026-03-06 优化JAR审计流程：
   - 支持跨平台CFR路径配置（第三参数或环境变量 `CFR_JAR_PATH`）
   - 修复反编译输出路径处理，减少误报“反编译失败”
+  - 新增 `config.properties` 模式
+  - 新增结果导出（`JSON/TXT/all`）
+  - 新增多关键字逗号分隔搜索
   - 优化匹配输出逻辑与去重，提升稳定性
-
-## 新版执行示例
-
-```bash
-# 方式1：命令行直接传 CFR 路径
-java -jar JarMethodFinder-1.0-SNAPSHOT.jar /path/to/jars Runtime.getRuntime /path/to/cfr.jar
-
-# 方式2：环境变量配置 CFR 路径
-export CFR_JAR_PATH=/path/to/cfr.jar
-java -jar JarMethodFinder-1.0-SNAPSHOT.jar /path/to/jars Runtime.getRuntime
-```
 
 **本工具由Code4th安全团队开发维护**
 
